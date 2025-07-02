@@ -136,7 +136,7 @@ def convert_ollama_to_openai(output):
             "finish_reason": "stop",
             "index": 0,
             "message": {
-            "content": str(output['message']['content']),
+            "content": output.get("response", "No response"),
             "role": "user"
             }
         }
@@ -283,9 +283,11 @@ class Ollama(ModelBackend):
         kwargs['model'] = _model_name
         # import pdb; pdb.set_trace()
         url = "http://localhost:11434/api/chat"
+        url = "http://sps-lab04.supsi.ch:7004/api/generate"
+        prompt = kwargs.get("messages", [{"role": "user", "content": "Hello!"}])[-1]["content"]
         data = {
             "model": _model_name,
-            "messages": kwargs['messages'],
+            "prompt": prompt,
             "stream": False
         }
         response = requests.post(url, json=data).json()

@@ -21,4 +21,7 @@ def main():
                         help="GPT Model, choose from {'GPT_3_5_TURBO','GPT_4','GPT_4_32K', 'GPT_3_5_AZURE', 'CLAUDE', 'ANTHROPIC_CLAUDE', 'OLLAMA'}")
     args = parser.parse_args()
     print('------------------------------')
-    run_task(args)                                           
+    run_task(args)
+
+if __name__ == "__main__":
+    main()
