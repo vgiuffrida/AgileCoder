@@ -282,8 +282,8 @@ class Ollama(ModelBackend):
         
         kwargs['model'] = _model_name
         # import pdb; pdb.set_trace()
-        url = "http://localhost:11434/api/chat"
-        url = "http://sps-lab04.supsi.ch:7004/api/generate"
+        # TODO: hardcoded url
+        url = "http://localhost:11434/api/generate"
         prompt = kwargs.get("messages", [{"role": "user", "content": "Hello!"}])[-1]["content"]
         data = {
             "model": _model_name,
